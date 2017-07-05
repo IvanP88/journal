@@ -79,13 +79,19 @@
             @if (Auth::guest())
             @else
                 <div class="text-center" style="padding: 5px;">
-                    <a href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjss51d2XQ0e37iNmqZxokwVtA_9E5_-DdOiMKrX5jQG3g4xXW0NtCrmNqeu5PCckke3jQt6oL8A_ByuBKpm_QpowNS1jeu34v3IhhGCw-0fsm5KFfsNTcH5-4MKNCEp-OBHrFkLIhhU7rhnm1XmATClyBtOkTZYxHKtbfFjG1waGT6Jrat6kHMiTjXqpVIA84SztbSeCGyi2vTfBKpPNRNj3pEjyLrVwV5c&amp;sig=Cg0ArKJSzOPZ34mvgOibEAE&amp;urlfix=1&amp;adurl=https://www.w3schools.com/howto/howto_css_alert_buttons.asp" target="_blank&quot;">
-                        <button class="btn success">Profile</button>
-                        <button class="btn info">Info</button>
-                        <button class="btn warning">Warning</button>
-                        <button class="btn danger">Danger</button>
-                        <button class="btn default">Default</button>
-                    </a>
+                        <a class="btn btn-default" href="{{ url('/profile') }}">Profile</a>
+                        @if (Auth::user()->role->id === 'leaner')
+                            <a class="btn btn-default">Timesheet</a>
+                        @endif
+                        @if (Auth::user()->role->id === 'teacher')
+                            <a class="btn btn-default">Distanse</a>
+                            <a class="btn btn-default">Ratings</a>
+                            <a class="btn btn-default">Groups</a>
+                        @endif
+                        @if (Auth::user()->role->id === 'director')
+                            <a class="btn btn-default">Teachers</a>
+                            <a class="btn btn-default">Subjects</a>
+                        @endif
                 </div>
             @endif
         </nav>

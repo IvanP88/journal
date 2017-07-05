@@ -12,13 +12,13 @@
 */
 
 Route::get('/', function () {
-//    $user =  App\User::find(1);
-//    dd($user->rel_role->id);
     return view('home');
 });
 
-Auth::routes();
+//Auth::routes();
 Route::auth();
+//User
+Route::get('/profile', 'UserController@profile');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/index', 'MainController@index');

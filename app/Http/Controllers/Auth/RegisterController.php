@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        Profile::create_default($user['id']);
+        (new Profile)->create_default($user['id']);
 
         return $user;
     }

@@ -7,19 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $table = 'profile';
-    public $user_id = 1;
+    protected $fillable = ['user_id', 'last_name', 'age', 'sex_id', 'coordinate', 'cell_phone', 'address', 'birthday'];
     public $timestamps = false;
 
-    public static function create_default($id)
+    public function create_default($id)
     {
-//        $id = Users::find($id);
-        $profile = new Profile;
-        $profile['user_id'] = $id;
-        $profile->save();
-        return true;
+        $this->create([
+            'user_id' => $id,
+            'last_name' => 'Name',
+            'age'=> 1,
+            'sex_id' => 1,
+            'coordinate' => '1',
+            'cell_phone'=>'1',
+            'address'=>'address'
+        ]);
+        return $this;
     }
-    public function rel_user()
+    public function user()
     {
-        return $this->belongsTo(\App\User::class, 'user_id');
+        return $this->hasOne(\App\User::class, 'user_id');
     }
 }
