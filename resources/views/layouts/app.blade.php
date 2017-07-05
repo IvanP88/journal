@@ -8,14 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
-        window.Laravel = '<?php echo json_encode([
+        window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name') }}
                     </a>
                 </div>
 
@@ -76,6 +76,18 @@
                     </ul>
                 </div>
             </div>
+            @if (Auth::guest())
+            @else
+                <div class="text-center" style="padding: 5px;">
+                    <a href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjss51d2XQ0e37iNmqZxokwVtA_9E5_-DdOiMKrX5jQG3g4xXW0NtCrmNqeu5PCckke3jQt6oL8A_ByuBKpm_QpowNS1jeu34v3IhhGCw-0fsm5KFfsNTcH5-4MKNCEp-OBHrFkLIhhU7rhnm1XmATClyBtOkTZYxHKtbfFjG1waGT6Jrat6kHMiTjXqpVIA84SztbSeCGyi2vTfBKpPNRNj3pEjyLrVwV5c&amp;sig=Cg0ArKJSzOPZ34mvgOibEAE&amp;urlfix=1&amp;adurl=https://www.w3schools.com/howto/howto_css_alert_buttons.asp" target="_blank&quot;">
+                        <button class="btn success">Profile</button>
+                        <button class="btn info">Info</button>
+                        <button class="btn warning">Warning</button>
+                        <button class="btn danger">Danger</button>
+                        <button class="btn default">Default</button>
+                    </a>
+                </div>
+            @endif
         </nav>
 
         @yield('content')

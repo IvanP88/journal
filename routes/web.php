@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    $user =  App\User::find(1);
+//    dd($user->rel_role->id);
+    return view('home');
 });
 
 Auth::routes();
