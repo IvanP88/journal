@@ -22,3 +22,6 @@ Route::get('/profile', 'UserController@profile');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/index', 'MainController@index');
+
+//form
+Route::post('/profile_save', 'UserController@profile_save');
