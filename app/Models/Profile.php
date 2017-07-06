@@ -14,8 +14,7 @@ class Profile extends Model
     {
         $this->create([
             'user_id' => $id,
-            'last_name' => 'Name',
-            'age'=> 1,
+            'last_name' => '_',
             'sex_id' => 1,
             'coordinate' => '1',
             'cell_phone'=>'1',

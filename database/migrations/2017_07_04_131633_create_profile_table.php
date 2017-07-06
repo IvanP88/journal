@@ -18,7 +18,6 @@ class CreateProfileTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('last_name', 64)->default('last_name');
-            $table->unsignedInteger('age')->default(6);
             $table->unsignedInteger('sex_id')->default(1);
             $table->foreign('sex_id')->references('id')->on('sex');
             $table->string('coordinate', 256)->default('0');
