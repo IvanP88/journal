@@ -80,15 +80,15 @@
             @else
                 <div class="text-center" style="padding: 5px;">
                         <a class="btn btn-default" href="{{ url('/profile') }}">Profile</a>
-                        @if (Auth::user()->role->id === 'leaner')
+                        @if (Auth::user()->role->name === 'leaner')
                             <a class="btn btn-default">Timesheet</a>
                         @endif
-                        @if (Auth::user()->role->id === 'teacher')
+                        @if (Auth::user()->role->name === 'teacher')
                             <a class="btn btn-default">Distanse</a>
                             <a class="btn btn-default">Ratings</a>
                             <a class="btn btn-default">Groups</a>
                         @endif
-                        @if (Auth::user()->role->id === 'director')
+                        @if (Auth::user()->role->name === 'director')
                             <a class="btn btn-default">Teachers</a>
                             <a class="btn btn-default">Subjects</a>
                         @endif

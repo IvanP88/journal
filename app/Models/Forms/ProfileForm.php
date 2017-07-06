@@ -30,7 +30,7 @@ class ProfileForm extends Model
         $user = new User;
         $profile = new Profile;
         $user_update = $user::find($id);
-        $user_update->name = $profile_save->name;
+            $user_update->name = $profile_save->name;
         $user_update->save();
 
         $profile_update = $profile::where('user_id', $id)->first();
