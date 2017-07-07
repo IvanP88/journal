@@ -18,6 +18,7 @@ class UserController extends Controller
     }
     public function profile(Profile $model_profile, User $model_user)
     {
+
         $profile = $model_profile::where('user_id', Auth::user()->id)->first();
         $user = $model_user::find(Auth::user()->id);
         return view('pages.user.profile', ['profile' => $profile, 'user'=>$user]);
@@ -25,6 +26,9 @@ class UserController extends Controller
 
     public function roles(Profile $profile)
     {
+        if(Auth::user()->role->name != 'director'){
+            return redirect('/');
+        }
         $all_profile = $profile::all();
 
         return view('pages.user.roles', ['profiles' => $all_profile]);
@@ -73,5 +77,6 @@ class UserController extends Controller
         }
         return redirect('/roles');
     }
+
 
 }
