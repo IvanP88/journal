@@ -38,6 +38,15 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name') }}
                     </a>
+                    @if (Auth::user()->role->name === 'leaner')
+                        <span class="label label-info">Leaner</span>
+                    @endif
+                    @if (Auth::user()->role->name === 'teacher')
+                        <span class="label label-info">Teacher</span>
+                    @endif
+                    @if (Auth::user()->role->name === 'director')
+                        <span class="label label-info">Director</span>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -91,6 +100,7 @@
                         @if (Auth::user()->role->name === 'director')
                             <a class="btn btn-default">Teachers</a>
                             <a class="btn btn-default">Subjects</a>
+                            <a class="btn btn-default" href="{{ url('/roles') }}">Roles</a>
                         @endif
                 </div>
             @endif

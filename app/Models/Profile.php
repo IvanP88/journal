@@ -25,6 +25,10 @@ class Profile extends Model
     }
     public function user()
     {
-        return $this->hasOne(\App\User::class, 'user_id');
+        return $this->belongsTo(\App\User::class, 'user_id');
+    }
+    public function sex()
+    {
+        return $this->belongsTo(\App\Models\Sex::class, 'sex_id');
     }
 }

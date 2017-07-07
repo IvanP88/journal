@@ -19,9 +19,12 @@ Route::get('/', function () {
 Route::auth();
 //User
 Route::get('/profile', 'UserController@profile');
+Route::get('/roles', 'UserController@roles');
+Route::get('/roles_change/{id}', 'UserController@roles_change');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/index', 'MainController@index');
 
 //form
 Route::post('/profile_save', 'UserController@profile_save');
+Route::post('/role_save', 'UserController@role_save');

@@ -44,4 +44,19 @@ class ProfileForm extends Model
 
         return True;
     }
+    public static function validate_role($request)
+    {
+        $validator = Validator::make($request->all(), [
+            'role_id' => 'required|integer|exists:roles,id',
+        ]);
+        return $validator;
+    }
+    public static function role_save($role_save)
+    {
+        $user = new User;
+        $user_update = $user::find($role_save->user_id);
+        $user_update->role_id = $role_save->role_id;
+        $user_update->save();
+        return True;
+    }
 }
