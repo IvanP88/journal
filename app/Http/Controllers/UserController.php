@@ -18,18 +18,18 @@ class UserController extends Controller
     }
     public function profile(Profile $model_profile, User $model_user)
     {
-
         $profile = $model_profile::where('user_id', Auth::user()->id)->first();
         $user = $model_user::find(Auth::user()->id);
         return view('pages.user.profile', ['profile' => $profile, 'user'=>$user]);
     }
 
-    public function roles(Profile $profile)
+    public function roles(Profile $profile, User $user)
     {
         if(Auth::user()->role->name != 'director'){
             return redirect('/');
         }
-        $all_profile = $profile::all();
+        $director_id = $user::where('role_id', User::DIRECTOR_ID)->first();
+        $all_profile = $profile::where('user_id', '!=', $director_id->id)->get();
 
         return view('pages.user.roles', ['profiles' => $all_profile]);
     }

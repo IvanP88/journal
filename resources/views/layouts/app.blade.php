@@ -38,14 +38,17 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name') }}
                     </a>
-                    @if (Auth::user()->role->name === 'leaner')
-                        <span class="label label-info">Leaner</span>
-                    @endif
-                    @if (Auth::user()->role->name === 'teacher')
-                        <span class="label label-info">Teacher</span>
-                    @endif
-                    @if (Auth::user()->role->name === 'director')
-                        <span class="label label-info">Director</span>
+                    @if (Auth::guest())
+                    @else
+                        @if (Auth::user()->role->name === 'leaner')
+                            <span class="label label-info">Leaner</span>
+                        @endif
+                        @if (Auth::user()->role->name === 'teacher')
+                            <span class="label label-info">Teacher</span>
+                        @endif
+                        @if (Auth::user()->role->name === 'director')
+                            <span class="label label-info">Director</span>
+                        @endif
                     @endif
                 </div>
 
