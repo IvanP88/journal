@@ -84,6 +84,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            <a class="btn btn-default" href="{{ url('/lang/en') }}">
+                                ENG
+                            </a>
+                            <a class="btn btn-default" href="{{ url('/lang/ua') }}">
+                                UA
+                            </a>
                         @endif
                     </ul>
                 </div>
@@ -107,14 +113,6 @@
                         @endif
                 </div>
             @endif
-            <div class="well-sm">
-                <a class="btn btn-info" href="{{ url('/lang/en') }}">
-                    ENG
-                </a>
-                <a class="btn btn-info" href="{{ url('/lang/ua') }}">
-                    UA
-                </a>
-            </div>
         </nav>
 
         @yield('content')
