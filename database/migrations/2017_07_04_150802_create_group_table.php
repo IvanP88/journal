@@ -15,8 +15,8 @@ class CreateGroupTable extends Migration
     {
         Schema::create('group', function (Blueprint $table){
             $table->increments('id');
-            $table->unsignedInteger('name_group');
-            $table->foreign('name_group')->references('id')->on('groups');
+            $table->unsignedInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('status')->default(False);

@@ -62,8 +62,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/login') }}">@lang('menu.login')</a></li>
+                            <li><a href="{{ url('/register') }}">@lang('menu.register')</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -75,7 +75,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            @lang('menu.logout')
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -91,22 +91,30 @@
             @if (Auth::guest())
             @else
                 <div class="text-center" style="padding: 5px;">
-                        <a class="btn btn-default" href="{{ url('/profile') }}">Profile</a>
+                        <a class="btn btn-default" href="{{ url('/profile') }}">@lang('menu.profile')</a>
                         @if (Auth::user()->role->name === 'leaner')
-                            <a class="btn btn-default">Timesheet</a>
+                            <a class="btn btn-default">@lang('menu.diary')</a>
                         @endif
                         @if (Auth::user()->role->name === 'teacher')
-                            <a class="btn btn-default">Distanse</a>
-                            <a class="btn btn-default">Ratings</a>
-                            <a class="btn btn-default">Groups</a>
+                            <a class="btn btn-default">@lang('menu.distance')</a>
+                            <a class="btn btn-default">@lang('menu.ratings')</a>
+                            <a class="btn btn-default">@lang('menu.groups')</a>
                         @endif
                         @if (Auth::user()->role->name === 'director')
-                            <a class="btn btn-default">Teachers</a>
-                            <a class="btn btn-default">Subjects</a>
-                            <a class="btn btn-default" href="{{ url('/roles') }}">Roles</a>
+                            <a class="btn btn-default">@lang('menu.teachers')</a>
+                            <a class="btn btn-default">@lang('menu.subjects')</a>
+                            <a class="btn btn-default" href="{{ url('/roles') }}">@lang(('menu.roles'))</a>
                         @endif
                 </div>
             @endif
+            <div class="well-sm">
+                <a class="btn btn-info" href="{{ url('/lang/en') }}">
+                    ENG
+                </a>
+                <a class="btn btn-info" href="{{ url('/lang/ua') }}">
+                    UA
+                </a>
+            </div>
         </nav>
 
         @yield('content')

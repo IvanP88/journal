@@ -12,25 +12,25 @@ class SubjectsTableSeeder extends Seeder
     public function run()
     {
         DB::table('subjects')->insert(
-            ['name' => 'history']
+            ['subject_name' => 'history']
         );
         DB::table('subjects')->insert(
-            ['name' => 'astronomy']
+            ['subject_name' => 'astronomy']
         );
         DB::table('subjects')->insert(
-            ['name' => 'physics']
+            ['subject_name' => 'physics']
         );
         DB::table('subjects')->insert(
-            ['name' => 'philosophy']
+            ['subject_name' => 'philosophy']
         );
         DB::table('subjects')->insert(
-            ['name' => 'music']
+            ['subject_name' => 'music']
         );
         DB::table('subjects')->insert(
-            ['name' => 'chemistry']
+            ['subject_name' => 'chemistry']
         );
         DB::table('subjects')->insert(
-            ['name' => 'biology']
+            ['subject_name' => 'biology']
         );
     }
 }

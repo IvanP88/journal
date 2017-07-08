@@ -24,7 +24,7 @@ class CreateLeanerLogTable extends Migration
             $table->unsignedInteger('group_id');
             $table->foreign('group_id')->references('id')->on('group');
             $table->unsignedInteger('rating');
-            $table->unsignedInteger('course');
+            $table->unsignedInteger('course')->default(1);
             $table->timestamp('date');
         });
     }

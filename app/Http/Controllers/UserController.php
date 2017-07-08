@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Session;
 
 
 class UserController extends Controller
@@ -15,6 +16,8 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $lang = Session::get ('locale');
+        if ($lang != null) \App::setLocale($lang);
     }
     public function profile(Profile $model_profile, User $model_user)
     {

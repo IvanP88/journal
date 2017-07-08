@@ -28,3 +28,9 @@ Route::get('/index', 'MainController@index');
 //form
 Route::post('/profile_save', 'UserController@profile_save');
 Route::post('/role_save', 'UserController@role_save');
+
+// Lang
+Route::get('lang/{locale}', function ($locale) {
+    App::setLocale($locale);
+    return redirect()->back();
+});
