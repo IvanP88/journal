@@ -84,10 +84,10 @@
                                     </li>
                                 </ul>
                             </li>
-                            <a class="btn btn-default" href="{{ url('/lang/en') }}">
+                            <a class="btn btn-default btn-xs" href="{{ url('/lang/en') }}">
                                 ENG
                             </a>
-                            <a class="btn btn-default" href="{{ url('/lang/ua') }}">
+                            <a class="btn btn-default btn-xs" href="{{ url('/lang/ua') }}">
                                 UA
                             </a>
                         @endif
