@@ -23,7 +23,8 @@
                             {!! Form::text('last_name', $profile->last_name, ['class' => 'form-control']) !!}
                             {!! Form::label('sex_id', 'Sex:') !!}
                             {!! Form::select('sex_id', ['1' => 'Male', '2' => 'Female'], $profile->sex_id, ['class' => 'form-control']) !!}
-                            {!! Form::label('coordinate', 'Coordinate:') !!}
+                            {!! Form::label('coordinate', 'Geolocation:') !!}
+                            <a class="btn btn-link btn-xs" id="locate_coordinate" >Get auto geolocation</a>
                             {!! Form::text('coordinate', $profile->coordinate, ['class' => 'form-control']) !!}
                             {!! Form::label('cell_phone', 'Cell Phone:') !!}
                             {!! Form::text('cell_phone', $profile->cell_phone, ['class' => 'form-control']) !!}
@@ -40,3 +41,6 @@
     </div>
 </div>
 @endsection
+@section('scripts')
+    <script src="/public/js/get_geolocation.js"></script>
+    @endsection

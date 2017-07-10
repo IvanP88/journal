@@ -32,5 +32,7 @@ Route::post('/role_save', 'UserController@role_save');
 // Lang
 Route::get('lang/{locale}', function ($locale) {
     App::setLocale($locale);
+    Session::put('locale', $locale);
+//    dd(Session::all());
     return redirect()->back();
 });
