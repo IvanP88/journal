@@ -100,6 +100,7 @@
                         <a class="btn btn-default" href="{{ url('/profile') }}">@lang('menu.profile')</a>
                         @if (Auth::user()->role->name === 'leaner')
                             <a class="btn btn-default">@lang('menu.diary')</a>
+                            <a class="btn btn-default" href="{{ url('/distance_one') }}">@lang('menu.distance')</a>
                         @endif
                         @if (Auth::user()->role->name === 'teacher')
                             <a class="btn btn-default">@lang('menu.distance')</a>

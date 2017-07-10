@@ -22,6 +22,11 @@ Route::get('/profile', 'UserController@profile');
 Route::get('/roles', 'UserController@roles');
 Route::get('/roles_change/{id}', 'UserController@roles_change');
 
+
+//Teacher
+Route::get('/distance_one', 'LeanerController@distance_one');
+
+
 Route::get('/home', 'HomeController@index');
 Route::get('/index', 'MainController@index');
 
@@ -36,3 +41,9 @@ Route::get('lang/{locale}', function ($locale) {
 //    dd(Session::all());
     return redirect()->back();
 });
+
+// Ajax
+Route::post('/get_user_coordinate', [
+    'uses' =>'UserController@get_user_coordinate',
+    'as'=>'get_user_coordinate'
+    ]);

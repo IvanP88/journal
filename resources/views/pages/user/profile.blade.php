@@ -42,5 +42,5 @@
 </div>
 @endsection
 @section('scripts')
-    <script src="/public/js/get_geolocation.js"></script>
+    <script src="/resources/assets/js/users/get_geolocation.js"></script>
     @endsection

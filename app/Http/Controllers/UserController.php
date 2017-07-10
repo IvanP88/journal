@@ -13,6 +13,7 @@ use Session;
 
 class UserController extends Controller
 {
+    const COLLEDGE_COORDINATE = '49.260234,28.4735245';
     public function __construct()
     {
         $this->middleware('auth');
@@ -79,6 +80,12 @@ class UserController extends Controller
             }
         }
         return redirect('/roles');
+    }
+//    Ajax
+    public function get_user_coordinate(Request $request, Profile $profile)
+    {
+        $coordinate = $profile::where('user_id', Auth::user()->id)->first();
+        return json_encode(['coordinate'=>$coordinate->coordinate, 'col_coordinate'=> self::COLLEDGE_COORDINATE]);
     }
 
 
